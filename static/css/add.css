@@ -1,0 +1,35 @@
+
+    .header {
+        background-color:gray;
+        padding: 20px;
+        }
+      .column {
+        float: left;
+        padding: 10px;
+      }
+      
+      .column.side {
+        background-color :gray;
+        width: 5%;
+      }
+      
+      .column.middle {
+        background-color: #ffffff;
+        width: 90%;
+        height: 100%;
+        border: gray;
+        border-radius:25px
+      }
+      
+      .row:after {
+        background-color:gray;
+        content: "";
+        display: table;
+        clear: both;
+       
+      }
+        .footer {
+        background-color:gray;
+        padding: 10px;
+        text-align: center;
+      }

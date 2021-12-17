@@ -1,0 +1,148 @@
+{% extends 'datamining/base.html' %}
+{% load static %}
+{% load datamining_template_tags %}
+
+{% block title_block %}
+{% endblock %}
+{% block css_block %}
+<link rel="stylesheet" href="{% static 'css/score.css' %}">
+{% endblock %}
+{% block body_block %}
+<style>
+ 
+  .header {
+  background-color:gray;
+  padding: 20px;
+  }
+.column {
+  float: left;
+  padding: 10px;
+}
+
+.column.side {
+  background-color :gray;
+  width: 5%;
+}
+
+.column.middle {
+  background-color: #ffffff;
+  width: 90%;
+  height: 100%;
+  border: gray;
+  border-radius:25px
+}
+
+.row:after {
+  background-color:gray;
+  content: "";
+  display: table;
+  clear: both;
+ 
+}
+  .footer {
+  background-color:gray;
+  padding: 10px;
+  text-align: center;
+}
+  </style>
+<br> <br/> 
+<br> <br/> 
+<br> <br/> 
+<div style="background-color:gray">
+
+    {% if category %}
+    
+    <div class="header">
+      <a href="/datamining/category" style=" width:50%; float:leff;color:black;font-size: larger;"><img src="{% static 'images/back.jpg' %}" alt="button" width="40" height="40"/></a> 
+      <b style="margin-right: auto; margin-left: 45%;font-size: larger;" >{{ category.name }}</b> 
+      <a href="/datamining/category/{{ category.slug }}/add_page/" style=" float:right;color:black;font-size: larger;">Add Page</a> 
+    </div>
+    <div class="row">
+      <div class="column side">
+      </div>
+    <div class="column middle">
+    <div>
+      <strong id="like_count">{{ category.likes }}</strong> people like this category
+      {% if user.is_authenticated %}
+      <button id="likes" data-catid="{{category.id}}"
+      class="btn btn-primary btn-sm" type="button">
+      Like category
+      </button>
+      {% endif %}
+      </div>
+    {% if pages %}
+    <ul>
+        {% for page in pages %}
+        <div class="panel-group" id="accordion">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                  <div style="margin:50px 10px 0px;font-size: 20px;"><li><a href="{{ page.url }}">{{ page.title }}</a></li><hr />
+                    <strong id="num_count"> {{page.num}}</strong> people rated</br>average score:  <strong id="score_count"> {{page.ave}}</strong>
+                    </li></div>               
+                <a style="margin:50px 10px 50px;font-size: 15px;" 
+                   href="/datamining/category/{{ category.slug }}/{{ page.slug }}/pagescore" >
+                  Add a score
+                </a>
+            </div>
+              </h4>
+            </div>
+           
+      </div>
+
+    {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+  <div class="column side"></div>
+  </div>
+</div>
+    {% else %}
+    {% if user.is_authenticated %}
+    <div class="header">
+      <a href="/datamining/" style=" width:50%; float:leff;color:black;font-size: larger;"><img src="{% static 'images/back.jpg' %}" alt="button" width="40" height="40"/></a> 
+      <b style="margin-right: auto; margin-left: 45%;font-size: larger;" >All categories</b> 
+      <a href="/datamining/add_category/" style=" float:right;color:black;font-size: larger;">Add Catrgory</a> 
+    </div>
+    
+    {% endif %}
+    <div class="row">
+      <div class="column side">
+      </div>
+    <div class="column middle">
+    {% for c in cat %}
+    
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <div id="main">
+                <div id="left" style=" float:left;"><h2><a href="/datamining/category/{{ c.slug }}/">{{ c.name }}</a></h2></div>
+                <div id="right" style="height: 40px;margin:30px 20px 30px;">
+              <a style="float:left;" data-toggle="collapse" data-parent="#accordion" 
+                 href="#{{ c.slug }}">
+                 <img src="{% static 'images/button.jpg' %}" alt="button" width="40" height="40"/>
+              </a>
+            </div>
+          </div>
+            </h4>
+          </div>
+          <div id="{{ c.slug }}" class="panel-collapse collapse in">
+            <div class="panel-body">
+                {% get_page_list c page %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+    {% endfor %}
+  </div>
+  <div class="column side">
+  </div>
+</div>
+    {% endif %}
+  </div>
+  <div class="footer">
+    <p></p>
+  </div>
+{% endblock %}

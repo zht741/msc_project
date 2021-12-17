@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+{% load static %}
+{% load datamining_template_tags %}
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  {% block css_block %}
+  your css path
+  {% endblock %}
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  <link href="{% static 'bootstrap/css/bootstrap.css' %}" rel="stylesheet">
+  <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+  <script src="https://kit.fontawesome.com/9095c6b559.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+  <script src="{% static 'jquery/jquery-3.6.0.js' %}"></script>
+  <script src="{% static 'jquery/datamining-ajax.js' %}"></script>
+  <script src="{% static 'jquery/category.js' %}"></script>
+  <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+  <script src="{% static 'jquery/xlsx.full.min.js' %}"></script>
+  <script src="{% static 'jquery/echarts.min.js' %}"></script>
+  <script src="{% static 'jquery/demo.js' %}"></script>
+  <title>
+    datamining -
+    {% block title_block %}
+    How to datamining!
+    {% endblock %}
+  </title>
+</head>
+
+<body>
+  <section id="title">
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+      <div class="container-fluid">
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+          aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav me-auto mb-3 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'datamining:index' %}"><i class="fas fa-home"></i>
+                Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Articles
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                {% if categories %}
+                {% for c in categories %}
+                {% if c == current_category %}
+                <li class="nav-item">
+                  <a class="nav-link active" href="{% url 'datamining:show_category' c.slug %}">
+                    <span data-feather="archive"></span>{{ c.name }}
+                  </a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'datamining:show_category' c.slug %}">
+                    <span data-feather="archive"></span>{{ c.name }}
+                  </a>
+                </li>
+                {% endif %}
+                {% endfor %}
+                {% else %}
+                <li class="nav-item">NONE</li>
+                {% endif %}
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/datamining/category/">See All</a>
+              </ul>
+            </li>
+          </ul>
+
+          <form class="d-flex" id="user-form" method="post">
+
+            <a class="navbar-brand" href="#">
+              datamining
+            </a>
+            <img src="{% static 'images/minilogo.png' %}" alt="Picture of logo" />
+          </form>
+
+          {% if user.is_authenticated %}
+          <ul class="navbar-nav me-auto mb-3 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'datamining:profile' user.username %}"> <i class="fas fa-user-circle"></i> Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'datamining:logout' %}"> <i
+                  class="fas fa-sign-out-alt"></i></i> Log out</a>
+            </li>
+          </ul>
+          {% else %}
+          <ul class="navbar-nav me-auto mb-3 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'datamining:login' %}"><i
+                  class="fas fa-sign-in-alt"></i> Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'datamining:register' %}"><i
+                  class="fas fa-user-plus"></i> Sign Up</a>
+            </li>
+          </ul>
+          {% endif %}
+        </div>
+      </div>
+    </nav>
+  </section>
+
+  <div class = "content">
+    {% block body_block %}
+    This is body_block's default content.
+    {% endblock %}
+  </div>
+
+  <footer id="footer">
+    
+    <a class="footer-link" href="https://twitter.com/"><i class="fab fa-twitter icon"></i></a>
+    <a class="footer-link" href="https://facebook.com/"><i class="fab fa-facebook-f icon"></i></a>
+    <a class="footer-link" href="https://instagram.com/"><i class="fab fa-instagram icon"></i></a>
+    <a class="footer-link" href="mailto:datamining@datamining.com"><i class="fas fa-envelope icon"></i></a>
+
+    <p>© Copyright 2021 datamining</p>
+
+  </footer>
+  <script>window.jQuery || document.write('<script src="https://getbootstrap.com/docs/4.2/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+  <script src="https://getbootstrap.com/docs/4.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.staticfile.org/jquery/3.0.0/jquery.min.js"></script>
+</body>
+
+</html>

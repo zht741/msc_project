@@ -1,0 +1,97 @@
+{% extends 'datamining/base.html' %}
+{% load static %}
+
+{% block title_block %}
+    About datamining
+{% endblock %}
+
+{% block body_block %}
+<style> 
+  div.container {
+    width: 100%;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+  }
+  
+  div.box {
+    box-sizing: border-box;
+    width: 50%;
+    border: 0px solid red;
+    float:left
+    }
+</style>
+<br/><br/>
+
+<div class="box">
+<div style="float: left;width: 30%;height: 500px;">
+<img src="{% static 'images/nasdaq.jpg' %}" alt="Picture of nasdaq" style="height: 1500px width: 1500px;"/>
+</div>
+<div style="width:50% ;height:500px ;float:right;overflow:hidden;"> 
+<div style="height: 60%;height:350px ;display: flex;align-items: center;">National Association of Securities Dealers Automated Quotations , an electronic securities trading institution in the United States, is owned and operated by Nasdaq stock market company. NASDAQ is the abbreviation of the automatic quotation transmission system of the National Securities Association. It was founded in 1971 and has become one of the largest stock markets in the world. This includes not only expensive charging data, bu many free and open data</div>
+<a href="https://data.nasdaq.com/" style="float:right;margin-right:50%;margin-top:0px;">go<alt="button" width="40" height="40"/></a>
+</div>
+</div>
+
+
+
+<div class="box">
+  <div style="float:left;width: 30%;height: 500px;">
+  <img src="{% static 'images/FactSet.jpg' %}" alt="Picture of FactSet" />
+  </div>
+  <div style="width:50% ;height:500px ;float:right;overflow:hidden;"> 
+  <div style="height: 60%;height:350px ;display: flex;align-items: center;">FactSet research system is a financial data and software company that provides financial information and analysis software for analysts, Securities Administrators and investment bankers of major financial institutions around the world. The core advantages of FactSet mainly focus on the company's financial data, which is why it has become one of the necessary skills of anaylst, an investment bank. FactSet is frequently used in investment banks as a daily basis. Moreover, FactSet has a personalized interface and powerful functions, and excel plugin is not bad</div>
+  <a href="https://www.factSet.com" style="float:right;margin-right:50%;margin-top:0px;">go<alt="button" width="40" height="40"/></a>
+  </div>
+  </div>
+
+
+
+  <div class="box">
+    <div style="float:left;width: 30%;height: 500px;">
+    <img src="{% static 'images/Bloomberg.jpg' %}" alt="Picture of Bloomberg" style="height: 1500px width: 1500px;"/>
+    </div>
+    <div style="width:50% ;height:500px ;float:right;overflow:hidden;"> 
+    <div style="height: 60%;height:350px ;display: flex;align-items: center;">Bloomberg provides services for most large financial institutions. Users can view and analyze real-time financial market data and conduct financial transactions through "Bloomberg Professional Services". Bloomberg terminal is a computer system that allows professionals to access "Bloomberg Professional Service". Bloomberg terminal is established based on client server architecture. The server is a multi processor UNIX platform, and the client used by end users is a Windows program</div>
+    <a href="https://www.bloomberg.com" style="float:right;margin-right:50%;margin-top:0px;">go<alt="button" width="40" height="40"/></a>
+    </div>
+    </div>
+    
+    <div class="box">
+      <div style="float:left;width: 30%;height: 500px;">
+      <img src="{% static 'images/figshare.jpg' %}" alt="Picture of Figshare" style="height: 1500px width: 1500px;"/>
+      </div>
+      <div style="width:50% ;height:500px ;float:right;overflow:hidden;"> 
+      <div style="height: 60%;height:350px ;display: flex;align-items: center;">Figshare is an online data knowledge base based on cloud computing technology. Researchers can save and share their research results, including data, data sets, images, videos, posters and codes, so that their research, even preliminary research, is exposed and recognized. Because figshare follows the principle of open data, users can freely access data and upload content. Therefore, researchers can disclose their data through figshare. All entries on figshare have DOI for easy reference</div>
+      <a href="https://figshare.com/" style="float:right;margin-right:50%;margin-top:0px;">go<alt="button" width="40" height="40"/></a>
+      </div>
+      </div>
+
+    <div class="box">
+      <div style="float:left;width: 30%;height: 500px;">
+      <img src="{% static 'images/Similarweb.jpg' %}" alt="Picture of Similarweb" />
+      </div>
+      <div style="width:50% ;height:500px ;float:right;overflow:hidden;"> 
+      <div style="height: 60%;height:350px ;display: flex;align-items: center;">Similarweb is one of the most popular website analysis tools in the world. The main functions include analyzing the website and competitor's website traffic information, analyzing the website traffic source, keywords and user stickiness, such as website dwell time, jump out rate, web page views, etc.</div>
+      <a href="https://www.similarweb.com/" style="float:right;margin-right:50%;margin-top:0px;">go<alt="button" width="40" height="40"/></a>
+      </div>
+      </div>
+
+
+
+
+      
+        
+        <div class="box">
+          <div style="float:left;width: 30%;height: 500px;">
+          <img src="{% static 'images/AwesomePublicDatasets.jpg' %}" alt="Picture of AwesomePublicDatasets" />
+          </div>
+          <div style="width:50% ;height:500px ;float:right;overflow:hidden;"> 
+          <div style="height: 60%;height:350px ;display: flex;align-items: center;">This is a list of various public data sets collected manually. Using GitHub public data collection project, it covers a wide range of natural and Social Sciences, including database resources in various sub fields.</div>
+          <a href="https://github.com/awesomedata/awesome-public-datasets" style="float:right;margin-right:50%;margin-top:0px;">go<alt="button" width="40" height="40"/></a>
+          </div>
+          </div>
+
+ 
+
+{% endblock %}

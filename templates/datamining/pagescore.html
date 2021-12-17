@@ -1,0 +1,99 @@
+{% extends 'datamining/base.html' %}
+{% load static %}
+{% load datamining_template_tags %}
+
+{% block title_block %}
+{% endblock %}
+{% block css_block %}
+<link rel="stylesheet" href="{% static 'css/score.css' %}">
+{% endblock %}
+{% block body_block %}
+<style>
+ 
+  .header {
+  background-color:gray;
+  padding: 20px;
+  }
+.column {
+  float: left;
+  padding: 10px;
+}
+
+.column.side {
+  background-color :gray;
+  width: 5%;
+}
+
+.column.middle {
+  background-color: #ffffff;
+  width: 90%;
+  height: 100%;
+  border: gray;
+  border-radius:25px
+}
+
+.row:after {
+  background-color:gray;
+  content: "";
+  display: table;
+  clear: both;
+ 
+}
+  .footer {
+  background-color:gray;
+  padding: 10px;
+  text-align: center;
+}
+div.ex
+  {
+  height: 10%;
+  width: 27%;
+  padding:10px;
+  border:5px solid rgb(255, 255, 255);
+  border-radius:25px;
+  background-color: rgb(145, 143, 143);
+  margin:10% 35% 10%;
+  }
+</style>
+<br/> <br/> 
+<div class="header">
+    <a href="/datamining/category/{{ category.slug }}" style=" width:50%; float:leff;color:black;font-size: larger;"><img src="{% static 'images/back.jpg' %}" alt="button" width="40" height="40"/></a> 
+    <b style="margin-right: auto; margin-left: 45%;font-size: larger;" >{{ category.name }}</b> 
+    <a href="/datamining/category/{{ category.slug }}/add_page/" style=" float:right;color:black;font-size: larger;">Add Page</a> 
+  </div>
+<div style="background-color:gray">
+    <div class="row">
+        <div class="column side">
+        </div>
+      <div class="column middle">
+        <div style="margin:50px 10px 0px;font-size: 20px;"><li><a href="{{ page.url }}">{{ page.title }}</a></li><hr />
+          <strong id="num_count"> {{page.num}}</strong> people rated average score:  <strong id="score_count"> {{page.ave}}</strong>
+            </li></div>  
+            <div class="ex">
+              <div id="score">
+              <div id="starRating" >
+          <p style=" margin:3% 40% 11%;"><b style=" font-size: 180%">Rating</b></p>
+          <p class="photo">
+             <span><i class="high"></i><i class="nohigh"></i></span>
+             <span><i class="high"></i><i class="nohigh"></i></span>
+             <span><i class="high"></i><i class="nohigh"></i></span>
+             <span><i class="high"></i><i class="nohigh"></i></span>
+             <span><i class="high"></i><i class="nohigh"></i></span>
+          </p>
+          <div class="bottoms" data-catid="{{page.id}}">
+             <button class="blackBtn sureStar " id="score" data-catid="{{page.id}}" type="button"style=" font-size: 4%;margin:8% 39% 5%">OK</button>
+         </div>
+        </div>
+      </div>
+      <p id="finish" style=" margin:6% 25% 11%;"><b style=" font-size: 100%"> Thank you for your score </b></p>
+    </div>
+</div>
+</div>
+    <br />
+
+<div class="column side">
+</div>
+<div class="footer">
+    <p></p>
+  </div>
+{% endblock %}

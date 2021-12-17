@@ -1,0 +1,74 @@
+{% extends 'datamining/base.html' %}
+{% load static %}
+{% csrf_token %}
+{% block title_block %}
+    Profile for {{ selected_user.username }}
+{% endblock %}
+
+{% block css_block %}
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+{% endblock %}
+{% block body_block %}
+<div class ="jumbotron p-4"> 
+    <div class ="container">
+        <h1 class ="welcome">Welcome, {{ selected_user.username }}</h1>
+    </div>
+</div> 
+    <!-- <view class="user-info">
+      <image class="userinfo-avatar" src="{{ MEDIA_URL }}{{ user_profile.picture }}" width="100" height="100"mode="cover"></image>
+    </view> -->
+<hr>    
+<div class="container" style="background-color: rgb(255, 255, 255); height:64.5%;">
+    <div class="row">
+        <!-- <div class="leftbox">
+                <kbd>my account</kbd>        
+        </div><br/><br/><br/> 
+        <div>
+                <kbd>my favorite</kbd> 
+        </div> -->
+        {% if user.is_authenticated %}
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-2" >                   
+                    <a id="blank">-</a><br />
+                    <ul id="main-nav" class="nav nav-tabs nav-stacked">
+                        <li><a id="sidetitle">Profile</a></li>
+                    </ul>
+                
+                    <ul id="main-nav" class="nav nav-tabs nav-stacked">
+                        <li><a href="{% url 'datamining:profile' user.username %}" id="sidecotent">My  account</a></li>
+                    </ul>
+                  
+                    <ul id="main-nav" class="nav nav-tabs nav-stacked">
+                        <li><a href="{% url 'datamining:favorite' user.username %}" id="sidecotent" >My favorite</a></li>
+                    </ul>              
+                </div>
+            </div>        
+        </div>
+        {% endif %}
+
+        
+    </div> 
+    <div>
+        <div class="user-info">
+            <img style="height:100px" class="userinfo-avatar" src="{{ MEDIA_URL }}{{ user_profile.picture }}" alt="{{ selected_user.username }}'s profile image"/>
+        </div>
+            <br />
+        <div class="box">
+            {% if selected_user == user %}
+            <form method="post" action="." enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+    
+                <input class="btn btn-primary" type="submit" value="Update" />
+            </form>
+            {% else %}
+                <p class="website">
+                    <strong>Website:</strong>
+                    <a href="{{ user_profile.website }}">{{ user_profile.website }}</a>
+                </p>
+                {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

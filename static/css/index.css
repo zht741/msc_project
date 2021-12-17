@@ -1,0 +1,47 @@
+.datamining{
+    width:100%;
+    position:relative;
+    left:0px;
+    top: 35px;
+    z-index: 0;
+}
+.category{
+    background-color:#681313;
+    text-align: center;
+    position:relative;
+    z-index: 1;
+}
+.button{
+    margin:3% 4% 2% 4%;
+    width:150px;
+    font-family: 'Montserrat';
+}
+.more{
+    position:relative;
+    left:40%;
+    font-family: 'Montserrat';
+}
+h4{
+    font-family: 'Montserrat';
+    padding:3% 0 0 1%;
+}
+.testimonials-image{
+    width: 60%;
+    margin: 20px;
+}
+.carousel-item{
+    padding:5% 15%;
+}
+#testimonials{
+    text-align: center;
+}
+/* made it responsive */
+@media screen and (max-width:0025px) {
+    
+    .datamining{
+      width:80%;
+      position:static;
+    }
+  
+}
+

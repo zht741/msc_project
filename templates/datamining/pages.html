@@ -1,0 +1,19 @@
+{% load static %}
+{% load datamining_template_tags %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="{% static 'bootstrap/css/bootstrap.css' %}" rel="stylesheet">
+<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+
+<ul>
+{% if pages %}
+        {% for p in pages %}
+            {% if p == current_page %}
+                <li><a href="{{ p.url }}">{{ p.title }}</a></li>
+            {% else %}
+                <li><a href="{{ p.url }}">{{ p.title }}</a></li>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        <li><strong>There are no categories present.</strong></li>
+    {% endif %}
+</ul>

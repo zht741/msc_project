@@ -1,0 +1,35 @@
+{% csrf_token %}
+{% load static %}
+{% block css_block %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
+
+{% block body_block %} 
+<div id="box" class="column">
+    <div id="content" class="column">
+        <div id="box-title">Log in</div>
+        <form id="login_form" method="post" action="{% url 'datamining:login' %}" class="column">
+            {% csrf_token %}
+            <div class="form-item">
+            <label for="username" class="label">Account:</label>
+            <input type="text" name="username" value="" size="50" class="input" placeholder="Please enter account"/> 
+            </div>
+            <div class="form-item">
+                <label for="password" class="label">Password:</label>
+                <input type="password" name="password" value="" size="50" class="input" placeholder="Please enter password"/> 
+            </div>
+            <div class="form-btn">
+                <input type="submit" value="CONFIRM" class="btn" style="background: #1D1C1A;color:#fff;"/>
+            </div>
+        </form>
+        <div id="footer">
+            <div id="footer-left"><a style="text-decoration: none;" aria-current="page" href="{% url 'datamining:register' %}">no account Register now</a></div>
+            <div id="footer-right" class="column">
+                <span><img src="{% static 'images/twitter.png' %}" alt="">Log with twitter</span>
+                <span><img src="{% static 'images/Facebook.png' %}" alt="">Log with Facebook</span>
+            </div>
+        </div>
+    </div>
+</div>
+ {% endblock %}

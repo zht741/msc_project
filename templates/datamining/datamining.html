@@ -1,0 +1,28 @@
+{% extends 'datamining/base.html' %}
+{% load static %}
+{% load datamining_template_tags %}
+{% block title_block %}
+Excel chart generation tool
+{% endblock %}
+{% block css_block %}
+<link rel="stylesheet" href="{% static 'css/datamining.css'%}">
+{% endblock %}
+    
+    
+   
+{% block body_block %}
+    <div class="barner">
+     <div class="left">
+      <h1>Excel chart generation tool</h1>
+     </div>
+     <div class="right">
+      <input id="select_text" type="text" placeholder="Please select a file···" readonly />
+      <input id="select_file" type="file" />
+      <a id="select_btn" href="javascript:void(0);">select a file</a>
+     </div>
+    </div>
+    <div class="content">
+     <div id="table"></div>
+     <div id="chart" style="width: 700px; height: 400px;"></div>
+    </div>
+    {% endblock %}

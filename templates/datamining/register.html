@@ -1,0 +1,62 @@
+{% load static %}
+<form action="." method="post">{% csrf_token %}
+{% block css_block %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+{% endblock %}
+{% block body_block %}
+{% if registered %}
+datamining says: <strong>thank you for registering!</strong>
+<a href="{% url 'datamining:index' %}">Return to the homepage.</a><br />
+{% else %}
+<div id="box">
+    <div id="box-logo">
+        <img src="{% static 'images/logo.jpg' %}" alt="">
+        <span>DataMining</span>
+    </div>
+    <div id="content" class="column">
+        <div id="content-title">
+            <h1>Welcome!</h1><span>Having an account? Log in now !</span>
+        </div>
+        <div id="content-main">
+            <div id="content-left">
+                <form id="user_form" method="post" action="{% url 'datamining:register' %}" enctype="multipart/form-data">
+                    <!-- {{ user_form.as_p }}
+                    {{ profile_form.as_p }} -->
+                    <div class="form-item">
+                        <label for="username" class="label">Account Name:</label>
+                        <input type="text" name="username" value="" size="50" class="input" placeholder="Please enter account"/> 
+                        </div>
+                        <div class="form-item">
+                            <label for="password" class="label">Enter Password:</label>
+                            <input type="password" name="password" value="" size="50" class="input" placeholder="Please enter password"/> 
+                        </div>
+                        <div class="form-item">
+                            <label for="password" class="label">Confirm Password:</label>
+                            <input type="password" name="password" value="" size="50" class="input" placeholder="Please confirm password"/> 
+                        </div>
+                        <div class="form-item">
+                            <label for="email" class="label">Email:</label>
+                            <input type="email" name="email" value="" size="50" class="input" placeholder="Please enter your address"/> 
+                        </div>
+                        <div class="form-item">
+                            <label for="email" class="label">File:</label>
+                            <input type="file" name="email" value="" /> 
+                        </div>
+                        <div class="form-btn">
+                            <input type="submit" value="CONFIRM" class="btn" style="background: #1D1C1A;color:#fff;"/>
+                        </div>
+                </form>
+            </div>
+            <div id="content-right" class="column">
+                <div class="content-right-content">Supports the combination of letters,numbers,"-"and"_",
+                    6-20 characters,dose not support Chinese 
+                </div>
+                <div class="content-right-content">It is recommended to use two or more combinations of letters numbers and symbols,6-20 characters 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

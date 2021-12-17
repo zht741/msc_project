@@ -1,0 +1,82 @@
+#starRating .photo span{
+    position: relative;
+    display: inline-block;
+    width: 8%;
+    height: 40px;
+    overflow: hidden;
+    margin-left: 2.5%;
+    cursor: pointer;
+    /* border: 1px solid black; */
+}
+#starRating .photo span:first-child{
+    margin-left: 25%;
+}
+#starRating .photo span:last-child{
+    margin-right: 0%;
+}
+#starRating .photo span .nohigh{
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    top: 0;
+    left: 0;
+    background: url(star.png);
+    background-size:35px 35px;
+}
+#starRating .photo span .high {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    top: 0;
+    left: 0;
+    background: url(star1.png);
+    background-size:35px 35px;
+}
+#starRating .starNum {
+    font-size: 35px;
+    color: #de4414;
+    margin-top: 4px;
+    margin-bottom: 10px;
+}
+#starRating .photo{
+    margin-top: 10%;
+}
+#starRating .bottoms a {
+    margin-bottom: 50px;
+}
+#starRating .bottoms .garyBtn {
+    margin-right: 20px!important;
+}
+#starRating .bottoms button {
+    width: 25%;
+    height: 35%;
+    line-height: 25px;
+    border-radius: 15px;
+    display: inline-block;
+    font-size: 8px;
+    transition: all 0.2s linear;
+    margin: 0px 15px 0px;
+    text-align: center;
+    cursor: pointer;
+}
+.garyBtn {
+    margin-right: 5px!important;
+    background-color: #000000;
+    color: #ffffff;
+}
+.blackBtn {
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+}
+.blueBtn:hover {
+    background: #0e73d0;
+}
+#starRating .photo {
+    width:25rem;
+    position: relative;
+    right:3rem;
+
+}
+
+
+

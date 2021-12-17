@@ -1,0 +1,50 @@
+{% extends 'datamining/base.html' %}
+{% load static %}
+
+{% block title_block %}
+    Homepage
+{% endblock %}
+{% block css_block %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+{% block body_block %}
+<!-- title part -->
+<div class="title">
+  <img class="datamining" src="{% static 'images/title-image.jpg' %}" alt="datamining">
+</div>
+<!-- category button -->
+
+<h4>webpage</h4>
+<hr>
+<section id="testimonials">
+    <div id="testimonials-carousel" class="carousel carousel-dark slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+            <a href="/datamining/category"><img class="testimonials-image" src="{% static 'images/article.jpg' %}"alt="article"></a>
+        </div>
+        <div class="carousel-item">
+          <a href="/datamining/website"><img class="testimonials-image" src="{% static 'images/website.jpg' %}"alt="website"></a>
+        </div>
+        <div class="carousel-item">
+            <a href="/datamining/datamining"><img class="testimonials-image" src="{% static 'images/DataAnalysis.jpg' %}"alt="DataAnalysis"></a>
+        </div>
+        <div class="carousel-item">
+            <a href="/datamining/data"><img class="testimonials-image" src="{% static 'images/data.jpg' %}"alt="data"></a>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#testimonials-carousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#testimonials-carousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+  </section>
+
+
+{% endblock %}
+
+ 

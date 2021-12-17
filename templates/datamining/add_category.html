@@ -1,0 +1,49 @@
+{% extends 'datamining/base.html' %}
+{% load static %}
+
+{% block title_block %}
+    Add a Category
+{% endblock %}
+{% block css_block %}
+    <link rel="stylesheet" href="{% static 'css/add.css' %}">
+{% endblock %}
+{% block body_block %}
+
+  <br/> <br/> 
+  <div class="header">
+    <a href="/datamining/category" style=" width:50%; float:leff;color:black;font-size: larger;"><img src="{% static 'images/back.jpg' %}" alt="button" width="40" height="40"/></a> 
+    <b style="margin-right: auto; margin-left: 41.5%;font-size: larger;" >Adding new category</b> 
+  </div>
+  <div class="row">
+    <div class="column side">
+    </div>
+  <div class="column middle">
+<div class="jumbotron p-4">
+</div>
+<div class="container">
+    <div class="row">
+        <form role="form" id="category_form" method="post" action="{% url 'datamining:add_category' %}"style="margin-right: auto; margin-left: 38%;font-size: larger;">
+            {% csrf_token %}
+            {% for hidden in form.hidden_fields %}
+                {{ hidden }}
+            {% endfor %}
+            {% for field in form.visible_fields %}
+                {{ field.errors }}
+                {{ field.help_text }}<br />
+                {{ field }}<br />
+                <div class="p-2"></div>
+            {% endfor %}
+            <br />
+            <button class="btn btn-primary" type="submit" name="submit"style="width:20%">Finish</button>
+            <div class="p-5"></div>
+        </form>
+    </div>
+</div>
+</div>
+<br />
+<div class="column side">
+</div>
+<div class="footer">
+<p></p>
+</div>
+{% endblock %}

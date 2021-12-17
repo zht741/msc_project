@@ -1,0 +1,63 @@
+{% extends 'datamining/profile.html' %}
+{% load static %}
+
+{% block title_block %}
+    favorite for {{ selected_user.username }}
+{% endblock %}
+
+{% block css_block %}
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+{% endblock %}
+
+{% block body_block %}
+<div class ="jumbotron p-4"> 
+    <div class ="container">
+        <h1 class ="welcome">Welcome, {{ selected_user.username }}</h1>
+    </div>
+</div> 
+<hr>    
+<div class="container" style="background-color: rgb(87, 87, 87); height:64.5%;">
+    <div class="row">
+        {% if user.is_authenticated %}
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-2" >                   
+                    <br />
+                    <ul id="main-nav" class="nav nav-tabs nav-stacked">
+                        <li><a id="sidetitle">Profile</a></li>
+                    </ul>
+                    <br /><br /><br /><br /><br />
+                    <ul id="main-nav" class="nav nav-tabs nav-stacked">
+                        <li><a href="{% url 'datamining:profile' user.username %}" id="sidecotent">My  account</a></li>
+                    </ul>
+                    <br /><br /><br /><br /><br />
+                    <ul id="main-nav" class="nav nav-tabs nav-stacked">
+                        <li><a href="{% url 'datamining:favorite' user.username %}" id="sidecotent" >My favorite</a></li>
+                    </ul>              
+                </div>
+            </div>        
+        </div>
+        {% endif %}
+
+        
+    </div> 
+    <div>
+        <div class="text-center">
+            <h2 class="favoritetitle">My Favorite Categories</h2><br /><br />
+            <li><a class="favoritecontent" href="/datamining/category/python/">Python</a></li><br />
+            <li><a class="favoritecontent" href="/datamining/category/java/">Java</a></li><br />
+            <li><a class="favoritecontent" href="/datamining/category/javascript/">Javascript</a></li>
+            <br />
+            <hr>
+        </div>
+        <div class="text-center">
+            <h2 class="favoritetitle">My favorite Pages</h2><br /><br />
+            <li><a class="favoritecontent" href="http://www.tangowithdjango.com/">How to Tango with Django</a></li><br />
+            <li><a class="favoritecontent" href="https://docs.djangoproject.com/en/2.1/intro/tutorial01/">Official Django Tutorial</a></li><br />
+        </div>
+        <div class="boxinfavorite">
+        </div>
+    </div>
+</div>
+{% endblock %}
